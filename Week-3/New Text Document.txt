@@ -1,0 +1,128 @@
+1. lapply-->Loop Over a List.
+2. lapply e 3 ta arguments thake. 1. List, 2. Function 3. Other arguments. lapply always ekta List e Output dibe.
+
+3.
+
+x<-list(a=1:5,b=rnorm(10))
+lapply(x,mean)
+
+$a
+[1] 3
+
+$b
+[1] -0.1771428
+
+4. First Col ke extract kore.
+
+ x<-list(a=matrix(1:4,2,2),b=matrix(1:6,3,2))
+ lapply(x,function(elt) elt[,1])
+
+sapply o same kaj kore rapply er moto.
+
+#######
+
+apply use kora hoi row ar coloumn e.
+
+1. Sob coloumn er individual mean ber kore. vector of lenght 10 pai.
+
+ x<- matrix(rnorm(200),20,10)
+ apply(x,2,mean)      ## 2 mane Hoilo colomn. 1 holo row
+ apply(x,1,sum)  ## col gulake sum kore
+
+2. Col er 25% portion er sum. 
+   
+   apply(x,1,qunantile,probs=c(0.25,0.75))
+   apply(x,c(1,2),mean) --> first 2 col er mean
+
+
+######### 
+
+mapply 
+
+########
+
+tapply
+
+x<-c(rnorm(10),runif(10),rnorm(10,1))   ## 3 typer Jinis
+f<-gl(3,10)                             ## Specified krlam je 3 level ar sob level e 10 ta kore.
+tapply(x,f,mean)                        ## alada alada portion er mean
+
+
+#####
+
+1.split Pura tappy moto. split ekta list retun kore.
+
+x<-c(rnorm(10),runif(10),rnorm(10,1))
+f<-gl(3,10)
+split(x,f)
+
+2. Split ta lapply er pore kora hoi.
+   lapply(split(x,f),mean)
+
+
+3.
+library(datasets)
+head(airquality)
+s<-split(airquality,airquality$Month)
+lapply(s,function(x) colMeans(x[,c("Ozone","Solar.R","Wind")]))
+
+
+5,6,7,8,9 Protita Alada Alada Month er Jnno Ei col gular mean ber kore ditese
+
+sapply(s,function(x) colMeans(x[,c("Ozone","Solar.R","Wind")]))
+
+Etake aro Sundor kore dei.
+
+sapply(s,function(x) colMeans(x[,c("Ozone","Solar.R","Wind")],na.rm=TRUE))\
+
+na take true dile NA gula Skipped Hbe.
+
+
+
+############### Assignment Portion #############
+
+### lapply  and sapply ###
+
+jei variable e table ta ase seta hoolo flags. 
+
+dim(flags) --> eta table e total koita row ase koita col ase ferot dei.
+
+cls_list<-lapply(flags,class)  --> Protita col er datatype jana jabe
+
+sum(flags$orange)  --> Col er sob add korar Jonno
+
+ flag_colors <- flags[, 11:17]  --> Sob Row nicche , But Coloumn Hisebe Shudhu 11 theke 17 niche
+
+lapply(flag_colors,sum) --> flag_colur table er sokol coloumn er sum alada alada vabe ber kore. Eta Ekta List. Better Hoi sapply kora. tahole vector dibe
+
+sapply(flag_colors,sum) --> vector dei
+
+lapply(flag_shapes, range) --> range Sokol col er min ar max value dei.
+
+sapply(flag_shapes, range)  --> Ekhane matrix return hoi
+
+unique(c(3, 4, 5, 5, 5, 6,6,6)) --> Unique gulo ferot dei
+
+lapply(flags,unique)  --> col er moddhe Unique value gulo return kore
+
+sapply(unique_vals,length)--> unique_vals table er protita col er length dibe
+
+
+unique_vals<- lapply(unique_vals, function(elem) elem[2]) --> Shudhu second item ta nibe
+
+
+ 
+### vapply and tapply ###
+
+table(flags$animate) --> table akare show kora lagle
+
+
+table(flags$landmass) --> lanmass e 1 theke 6 mane, 6 typer val ase.
+table(flags$animate)  --> ekhane 0,1 mane 2 typer value ase.
+
+tapply(flags$animate, flags$landmass, mean) --> Proprtion of flag contain animate image
+tapply(flags$population, flags$red, summary) -->we can look at a summary of population values
+
+
+
+

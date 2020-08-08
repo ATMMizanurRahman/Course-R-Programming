@@ -1,0 +1,89 @@
+
+#### Directory nia kmne kaj kore
+
+1. dir.create("testdir")
+   setwd("testdir")
+ file.create("mytest.R")
+ list.files()
+ file.exists("mytest.R")
+ file.rename("mytest.R","mytest2.R")
+ file.copy("mytest2.R","mytest3.R")
+
+file.path("folder1","folder2")
+[1] "folder1/folder2"
+
+
+dir.create(file.path('testdir2', 'testdir3'), recursive = TRUE)
+
+### Sequence Of Numbers : 
+1. pi:10 (3.14,4.14,5.14..) 9.14 pojnto cause next num 10 er baite
+2. 15:1 15,14,13...1
+3. 0 theke 10, 0.5 kore bare.  seq(0,10,0.5)
+4. ekta vector jekhane 40 ta 0 ase. rep(0,times=40)
+5. Ar 0,1,2 er 10 ta seq. rep(c(0,1,2),times=10)
+6. 10 ta 0,10 ta 1 , 10 ta 2. rep(c(0,1,2),each=10)
+
+
+
+#### Vector
+
+1. Kemne Ekta total Sentence banano jai. 
+   my_char<-c("My","name","is")
+   paste(my_char, collapse = " ")
+   my_name<-c(my_char,"Shuvo")
+   paste(my_name, collapse = " ")
+
+2.  paste(1:3,c("X","Y","Z"),sep="")
+[1] "1X" "2Y" "3Z"
+
+
+#### Missing values
+ 1. 1000 ta random val, 1000 ta NA, total 2000 theke 100 ta nilam amra 
+ 
+ y<-rnorm(1000)
+ z<-rep(NA,1000)
+ my_data<-sample(c(y,z),100)
+ my_na<-is.na(my_data)    # Kon Kon Jaigai NA ase, seta Jante partesi.
+ sum(my_na)  ## Total Koita NA ase, seta dekhabe
+ 
+
+##### Subsetting 
+
+ x[1:10]   ## EI x er moddhe ase onek NA
+ y<-x[!is.na(x)] ## Sokol NA ke soraia dei
+ y[y>0] Eta shudhu jesokol y>0 taderke dekhai
+
+ Ekbareo Pura Kaj ta Kora Jaite parto. 
+ x[!is.na(x) & x > 0] ## eta NA gulake skip kore + x>0 ke ane
+ 
+ Jodi X array er 3,5 ar 7th element lage.
+
+## x[c(3, 5, 7)]
+
+## x[c(-2,-10)] (2nd ar 10th element bade sob dibe)
+
+## vect<-c(foo=11,bar=2,norf=NA)
+    foo  bar norf 
+    11    2   NA 
+
+###  Matrices :
+
+my_vector<-1:20
+length(my_vector)
+dim(my_vector)<-c(4,5)
+my_matrix2 <- matrix(1:20, nrow=4, ncol=5)
+
+my_matrix<-my_vector
+patients<-c("Bill","Gina","Kelly","Sean")
+my_data <- data.frame(patients, my_matrix)
+cnames<-c("patient","age","weight","bp","rating","test")
+colnames(my_data)<-cnames
+my_data
+
+
+
+
+ 
+
+
+

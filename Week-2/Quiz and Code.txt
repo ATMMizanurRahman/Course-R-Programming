@@ -1,0 +1,72 @@
+1. OnekGula Csv File ase. Sekhan theke Kisu sonkhon csv fil er, 1 ta Nirdisto coloumn er Mean ber kora hbe.
+
+pollutantmean <- function(directory, pollutant, id = 1:332) {
+  
+    means <- c()
+    
+    for(monitor in id){
+        path <- paste(getwd(), "/", directory, "/", sprintf("%03d", monitor), ".csv", sep = "")
+        monitor_data <- read.csv(path)
+        interested_data <- monitor_data[pollutant]
+        means <- c(means, interested_data[!is.na(interested_data)])
+    }
+    
+    mean(means)
+}
+
+
+
+
+
+
+
+
+2. NA bade Koita Row ase setar List dekhabe . Coloumn Akare
+
+
+  complete <- function(directory, id = 1:332){
+   
+    results <- data.frame(id=numeric(0), nobs=numeric(0))
+    for(monitor in id){
+        path <- paste(getwd(), "/", directory, "/", sprintf("%03d", monitor), ".csv", sep = "")
+        monitor_data <- read.csv(path)
+        interested_data <- monitor_data[(!is.na(monitor_data$sulfate)), ]
+        interested_data <- interested_data[(!is.na(interested_data$nitrate)), ]
+        nobs <- nrow(interested_data)
+        results <- rbind(results, data.frame(id=monitor, nobs=nobs))
+    }
+    results
+}
+
+
+###########################################
+
+cor() computes the correlation coefficient. cor. test() test for association/correlation between paired samples. It returns both the correlation coefficient and the significance level(or p-value) of the correlation .
+
+
+3. Co-relation ber kora. 2 ta col er moddhe Cor value diye releation ber kora.
+
+
+corr <- function(directory, threshold = 0){
+   
+    cor_results <- numeric(0)
+    
+    complete_cases <- complete(directory)
+    complete_cases <- complete_cases[complete_cases$nobs>=threshold, ]
+    
+    if(nrow(complete_cases)>0){
+        for(monitor in complete_cases$id){
+            path <- paste(getwd(), "/", directory, "/", sprintf("%03d", monitor), ".csv", sep = "")
+            monitor_data <- read.csv(path)
+            interested_data <- monitor_data[(!is.na(monitor_data$sulfate)), ]
+            interested_data <- interested_data[(!is.na(interested_data$nitrate)), ]
+            sulfate_data <- interested_data["sulfate"]
+            nitrate_data <- interested_data["nitrate"]
+            cor_results <- c(cor_results, cor(sulfate_data, nitrate_data))
+        }
+    }
+    cor_results
+}
+
+
+cor value kom hole mean kore je 2 ta col er moddhe releation ase.

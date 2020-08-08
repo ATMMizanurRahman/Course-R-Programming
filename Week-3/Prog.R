@@ -1,0 +1,143 @@
+data(mtcars)
+head(mtcars)
+getwd()
+library(dplyr)
+library(tidyverse)
+install.packages("tidyverse")
+getwd()
+library(tidyverse)
+library(tidyverse)
+install.packages("dplyr")
+library(dplyr)
+packageVersion(swirl)
+install.packages("swirl")
+packageVersion("swirl")
+library(swirl)
+install_from_swirl("R Programming")
+swirl()
+TRUE==TRUE
+FALSE==TRUE
+(FALSE==TRUE)==FALSE
+6==7
+6<7
+10<=10
+5!=7
+5==7
+!(5==7)
+FALSE & FALSE
+TRUE & c(TRUE, FALSE, FALSE)
+TRUE && c(TRUE, FALSE, FALSE)
+TRUE | c(TRUE, FALSE, FALSE)
+TRUE || c(TRUE, FALSE, FALSE)
+ 5 > 8 || 6 != 8 && 4 > 3.9
+isTRUE(6>4)
+identical('twins', 'twins')
+xor(5
+| == 6, !FALSE)
+xor(5==6,!FALSE)
+ints<-sample(10)
+ints
+ints>5
+which(ints>7)
+any(ints<0)
+all(ints>0)
+Sys.Date()
+mean(c(2,4,5))
+submit()
+ boring_function('My first function!')
+boring_function
+submit()
+my_mean(c(4,5,10))
+submit()
+submit()
+submit()
+remainder(5)
+remainder(11,5)
+remainder(divisor = 11, num =5)
+r(4, div = 2)
+remainder(4, div = 2)
+args(remainder)
+submit()
+getwd()
+sd(c(1.4, 3.6, 7.9, 8.8))
+evaluate(sd,c(1.4, 3.6, 7.9, 8.8))
+evaluate(function(x){x+1}, 6)
+getwd()
+evaluate(function(x){x[0]},c(8,4,0))
+evaluate(function(x){x[0]}, dat=c(8,4,0))
+evaluate(function(x){x[0]},c(8,4,0))
+evaluate(function(x){x[0]}, dat=c(8,4,0)
+}
+evaluate(function(x){x[1]}, c(8, 4, 0))
+evaluate(function(x){x[length(x)]}, c(8, 4, 0))
+?paste
+ paste("Programming", "is", "fun!")
+submit()
+telegram(i , am, the, bext)
+telegram("I","am","the","best")
+submit()
+mad_libs(place = "London", adjustive = "beautiful", noun = "dog")
+submit()
+submit()
+"I" %p% "love" %p% "R!"
+q()
+install.packages("swirl")
+packageVersion("swirl")
+library(swirl)
+install_from_swirl("R Programming")
+swirl()
+head(flags)
+dim(flags)
+class(flags)
+getwd()
+lapply(flags,class)
+cls_list<-lapply(flags,class)
+cls_list
+class(cls_list)
+as.character(cls_list)
+getwd()
+cls_vect <- sapply(flags, class)
+class(cls_vect)
+sum(flag$orange)
+sum(flags$orange)
+ flag_colors <- flags[, 11:17] 
+getwd()
+head(flag_colours)
+head(flag_colors)
+lapply(flag_colors,sum)
+sapply(flag_colors,sum)
+getwd()
+sapply(flag_colors,mean)
+flag_shapes <- flags[, 19:23] 
+getwd()
+lapply(flag_shapes, range)
+sapply(flag_shapes, range)
+shape_mat<-sapply(flag_shapes, range)
+shape_mat
+class(shape_mat)
+unique(c(3, 4, 5, 5, 5, 6,
+6))
+getwd()
+unique_vals<-lapply(flags,unique)
+unique_vals
+getwd()
+sapply(unique_vals,length)
+sapply(flags,unique)
+unique_vals<- lapply(unique_vals, function(elem) elem[2])
+sapply(flags,
+| unique)
+sapply(flags,
+unique)
+ vapply(flags, unique, numeric(1))
+ok()
+sapply(flags,class)
+vapply(flags, class, character(1))
+?tapply
+table(flags$landmass)
+table(flags$animate)
+getwd()
+tapply(flags$animate, flags$landmass, mean) 
+tapply(flags$population, flags$red, summary).
+tapply(flags$population, flags$red, summary)
+getwd()
+tapply(flags$population, flags$landmass, summary)

@@ -1,0 +1,60 @@
+1. ints<-sample(10) ## Ekhane 1 theke 10 randomly thake
+2. Kon Kon ghore 7 er theke besi ase. which(ints>7)
+
+### Function.
+
+1. Sys.date() --> Todays Date
+
+2. mean(c(2,4,5)) --> Eta Mean ber kore.
+
+
+
+mad_libs <- function(...){
+  # Do your argument unpacking here!
+  args <- list(...)
+  
+  place <- args[["place"]]
+  adjective <- args[["adjective"]]
+  noun <- args[["noun"]]
+  
+  # Don't modify any code below this comment.
+  # Notice the variables you'll need to create in order for the code below to
+  # be functional!
+  paste("News from", place, "today where", adjective, "students took to the streets in protest of the new", noun, "being installed on campus.")
+}
+
+
+mad_libs(place = "London", adjustive = "beautiful", noun = "dog")
+[1] "News from London today where  students took to the streets in protest of the new dog being installed on campus." 
+
+
+
+
+
+
+
+
+"%p%" <- function(left, right){ # Remember to add arguments!
+  paste(left, right, sep = " ")
+}
+
+"I" %p% "love" %p% "R!"
+[1] "I love R!"
+
+https://rstudio-pubs-static.s3.amazonaws.com/220397_d07534a9d3de4d0d87d7df9036602296.html
+
+## Date And Time
+
+1.  t1<-Sys.time()
+    t2 <- as.POSIXlt(Sys.time())
+    unclass(t2)
+    str(unclass(t2))
+    t2$min --> eta mean kore t2 er moddhe onk kisu ase. amra shudhu min ta show krtesi
+    weekdays(d1) --> Week er Kon day.
+
+
+    Sys.time()-t1 ## Time Diffference.
+    difftime(Sys.time(), t1, units = 'days') ## Day Difference Dibe
+
+
+
